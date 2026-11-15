@@ -17,3 +17,9 @@ def dedupe_tracks(df):
     #The parameters like subset and keep are just two things I put in there, but you could put any other parameters that exist in there depending on your use case
     df = df.drop_duplicates(subset="track_id", keep="first")
     return df
+
+def clean_values(df):
+    df = df.dropna()
+    df = df[df["tempo"] > 0]
+    return df
+
